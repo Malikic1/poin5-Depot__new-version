@@ -846,6 +846,16 @@ h4,
   border-radius: 5px;
   box-shadow: 0px 1px 3px 1px rgba(255, 255, 255, 0.205);
 }
+.f-pass {
+  color: #520000 !important;
+  text-decoration: none;
+}
+.acc-btn {
+  background-color: transparent;
+  font-size: 1rem;
+  color: whitesmoke;
+  margin-left: 2rem;
+}
 .btn-n {
   border: solid black 2pt;
   width: 50%;

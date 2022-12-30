@@ -16,6 +16,7 @@ if(isset($_POST['register'])){
       $regPassword = mysqli_real_escape_string ($conn, md5($_POST["reg_password"]));
       $c_password = mysqli_real_escape_string($conn, md5($_POST["c_password"]));
       $checkEmail= mysqli_num_rows(mysqli_query($conn, "SELECT email FROM users WHERE email='$regEmail'"));
+      $token = md5(rand());
 
       if($regPassword !== $c_password){
             echo "<script>alert('password did not match');</script>";
@@ -23,7 +24,7 @@ if(isset($_POST['register'])){
             echo
               "<script>alert('Email already exist');</script>";
           }else{
-            $sql = "INSERT INTO users (first_name,last_name,email,phone_number,business_address,home_address,password) VALUES ('$firstName','$lastName','$regEmail','$phoneNumber','$B_address','$H_address','$regPassword')";
+            $sql = "INSERT INTO users (first_name,last_name,email,phone_number,business_address,home_address,password,token,status) VALUES ('$firstName','$lastName','$regEmail','$phoneNumber','$B_address','$H_address','$regPassword', '$token', '0')";
             $result = mysqli_query($conn, $sql);
             if($result){
                   $_POST['firstName'] = "";
@@ -34,10 +35,36 @@ if(isset($_POST['register'])){
                   $_POST['H_address'] = "";
                   $_POST['reg_password'] = "";
                   $_POST['c_password'] = "";
-                  echo "<script>alert('registration successful');</script>";
-                }else{
-                  echo
-                  "<script>alert('failed');</script>";
+
+   
+                  $to =  $regEmail;
+                  $subject = "EMAIL VERIFICATION - POINT5 DEPOT";
+                  
+                  $message = "
+                  <html>
+                  <head>
+                  <title>{$subject}</title>
+                  </head>
+                  <body>
+                  <p><b>DEAR, {$lastName}</b></p>
+                  <p>Thanks for registering with us! verify your email to access our website. Click below link to verify your email</p>
+                  <p><a href='{$base_url}verify-email.php?token={$token}'>Verify Email</a></p>
+                  </body>
+                  </html>
+                  ";
+                  
+                  // Always set content-type when sending HTML email
+                  $headers = "MIME-Version: 1.0" . "\r\n";
+                  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                  
+                  // More headers
+                  $headers .= "From: ". $v_email;
+                  
+                  if(mail($to,$subject,$message,$headers)){
+                     echo "<script>alert('We have sent a verification link to your email - {$regEmail}');</script>";
+                  }else{
+                     echo "<script>alert('Mail not sent, please try again.');</script>";
+                  };
                 }
           }      
 }
@@ -45,7 +72,7 @@ if(isset($_POST['register'])){
 if (isset($_POST["login"])) {
    $log_email = mysqli_real_escape_string($conn, $_POST["log_email"]);
    $log_password = mysqli_real_escape_string($conn, md5($_POST["log_password"]));
-   $checkEmail= mysqli_query($conn, "SELECT id FROM users WHERE email='$log_email' AND password ='$log_password'");
+   $checkEmail= mysqli_query($conn, "SELECT id FROM users WHERE email='$log_email' AND password ='$log_password' AND status ='1'");
 
    if (mysqli_num_rows($checkEmail) > 0) {
       $row = mysqli_fetch_assoc($checkEmail);
@@ -56,9 +83,6 @@ if (isset($_POST["login"])) {
       }
     }
 ?>
-
-
-
 
 
 
@@ -234,7 +258,7 @@ if (isset($_POST["login"])) {
              <br/>
              <input type="submit" name="login" value="LOGIN" class="input-2"/><br/><br/>
                </br>
-             <a href="forgot password" class="f-pass">forgotpassword</a><br/><br/><br/>
+             <a href="forgot password" class="f-pass"><u>forgot password</u></a><br/><br/><br/>
              <p>Don't have an accout yet? click SIGN UP</p>
          </form>
 
