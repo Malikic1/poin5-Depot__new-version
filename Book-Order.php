@@ -1,11 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['user_id'])){
-    header("Location: index.php");
-  }
+include 'session-start.php';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 	 <head>
@@ -27,7 +22,7 @@ if(!isset($_SESSION['user_id'])){
   			<div>
   				<button class="menu-btn" id="menu"><i class="fa-solid fa-bars menu1"></i></button>
   				<div id="panel">
-						<button class="panelBtn2">HOME</button><br>
+						<button class="panelBtn2">STOCK</button><br>
 						<button class="panelBtn2">ACOUNT</button><br>
     					<button class="panelBtn1" disabled>BOOK ORDER</button><br>
     					<button class="panelBtn2" onclick="scrollDisplay()" id="priceT">PRICE TRACKER<i class="fa-solid fa-chart-line icon"></i></button><br>
@@ -36,11 +31,11 @@ if(!isset($_SESSION['user_id'])){
 
   			</div>
 			<h3>POINT-5&nbsp;<span class="brand-name">DEPOT</span></h3>
-			<nav class="navbar">
-					<button class="navBtn2">HOME</button>	  
+			<nav class="navbar">  
 					<button class="navBtn1">BOOK-ORDER</button>
 					<button class="navBtn2">ORDER-HISTORY</button>
-					<button class="navBtn2">ACCOUNT</button>	  
+					<button class="navBtn2">STOCK</button>	
+					<button class="navBtn2" onclick="location.href='account.php'">ACCOUNT</button>	  
 			</nav>
 				<button class="notifBtn"><i class="fa-solid fa-bell"></i></button>
 			<span class="brand brand1">CocaCola  <i class="fa-solid fa-glass-water logo1"></i> <br>
@@ -55,13 +50,13 @@ if(!isset($_SESSION['user_id'])){
 				<p><u>NOTE:</u> <b>You'll receive text message on<br> delivery info after confirmation of booked-order</b></p>
 		</div>
 		<a href="logout.php">logout</a>
-		<h2>&nbsp;&nbsp; BOOK-ORDER</h2>
+		<h2>&nbsp;&nbsp; USER ID: 3155140<?php echo $_SESSION["user_id"]; ?></h2>
 	  	<div class="bookContent">
 	           	Book Order Here ¬<br>
 				&nbsp;&nbsp;&nbsp; <span class="text5 logo2">Type:</span>&nbsp;
  						<span class="guide">?Guide</span>
  
-    					<select id="type" >
+    					<select id="type">
 	    						<option>-select-</option>
 	    						<option value="1" class="bottleWater">Bottled Water only</option>
 	     						<option value="2">Soft Drink only</option>
