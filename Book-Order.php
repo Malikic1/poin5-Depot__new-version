@@ -51,175 +51,180 @@ include 'session-start.php';
 		</div>
 		<a href="logout.php">logout</a>
 		<h2>&nbsp;&nbsp; USER ID: 3155140<?php echo $_SESSION["user_id"]; ?></h2>
+		<form>
 	  	<div class="bookContent">
 	           	Book Order Here ¬<br>
 				&nbsp;&nbsp;&nbsp; <span class="text5 logo2">Type:</span>&nbsp;
- 						<span class="guide">?Guide</span>
- 
-    					<select id="type">
-	    						<option>-select-</option>
-	    						<option value="1" class="bottleWater">Bottled Water only</option>
-	     						<option value="2">Soft Drink only</option>
-	    						<option value="3">Both</option>
-	   					</select><br><br>
+ 				<span class="guide">?Guide</span>
+                
+    			<select id="type">
+	    			<option>-select-</option>
+	    			<option value="1" class="bottleWater">Bottled Water only</option>
+	     			<option value="2">Soft Drink only</option>
+	    			<option value="3">Both</option>
+	   			</select>
+
+				<br><br>
+
 	   		<div class="div-water div-n" id="divWater">
 				<div class="bottle-water">
-	  					<input class="checkbox" type="checkbox" id="">
- 						<label class="checkbox-label">AQUARITE WATER</label>
-						<br>
- 						<input class="checkbox" type="checkbox" id="">
- 						<label class="checkbox-label">AQUAFINA WATER</label>
-						<br>
- 						<input class="checkbox" type="checkbox" id="">
- 						<label class="checkbox-label">BIGI WATER</label>
-						<br>
- 						<input class="checkbox" type="checkbox" id="">
- 						<label class="checkbox-label">EVA WATER</label>
-						<br>
+	  				<input class="checkbox" type="checkbox">
+ 					<label class="checkbox-label">AQUARITE WATER</label>
+					<br>
+ 					<input class="checkbox" type="checkbox">
+ 					<label class="checkbox-label">AQUAFINA WATER</label>
+					<br>
+ 					<input class="checkbox" type="checkbox">
+ 					<label class="checkbox-label">BIGI WATER</label>
+					<br>
+ 					<input class="checkbox" type="checkbox">
+ 					<label class="checkbox-label">EVA WATER</label>
+					<br>
 				</div>
 				<div class="QTY1">
-					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="aquarite" oninput="calc()"><br>
-					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="aquafina" oninput="calc()"><br>
-					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="bigi-w" oninput="calc()"><br>
-					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="eva" oninput="calc()">
+					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="aquarite" name="aquarite" oninput="calc()"><br>
+					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="aquafina" name="aquafina" oninput="calc()"><br>
+					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="bigi-w" name="bigi-water" oninput="calc()"><br>
+					<label><b>Qty</b></label><input type="number" class="qty-1 qty-n" id="eva" name="eva" oninput="calc()">
 				</div>   
 			</div>
-					<a class="total" id="water-amount"></a><br>
+			      <a class="total" id="water-amount"></a><br>
 
-
-			<div class="div-soft div-n" id="divSoft">
-			<br>
-				<div>
+		<div class="div-soft div-n" id="divSoft">
+			<br>	
+			<div>
   					<button class="softDrink-brand co-1">BIGI</button><span></span>
   					<button class="softDrink-brand"><b>PEPSI</b></button>
   					<button class="softDrink-brand co-2"><b>COKE</b></button>
   					<button class="softDrink-brand co-3"><b>5-alive</b></button>
   				</div>
-  				<br>
-					<table>
-						<thead>
-							<th>BRAND</th>
-							<th>PET SIZE</th>
-							<th>BIG SIZE</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td><button disabled class="b-t1 b-t">Cola</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="cola1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="cola2"></td>
-							</tr>
-							<tr>
-								<td><button disabled class="b-t2 b-t">Orange</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="orange1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="orange2"></td>
-							</tr>
-							<tr>
-								<td><button disabled class="b-t3 b-t">Tropical</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()"  id="tropica1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="tropica2"></td>
-							</tr>
-							<tr>
-								<td><button disabled class="b-t4 b-t">Chap</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="chap1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="chap2"></td>
-							</tr>
-							<tr></tr>
-							<tr>
-								<td><button disabled class="b-t1 b-t">PEPSI</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="pepsi1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="pepsi2"></td>
-							</tr>
-							<tr>
-								<td><button disabled class="b-t2 b-t">MIRINDA</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="mirinda1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="mirinda2"></td>
-							</tr>
-							<tr></tr>
-							<tr>
-								<td><button disabled class="b-t1 b-t">COKE</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="coke1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="coke2"></td>
-							</tr>
-							<tr>
-								<td><button disabled class="b-t2 b-t">FANTA</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="fanta1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()"id="fanta2"></td>
-							</tr>
-							<tr>
-								<td></td>
-							</tr>
-							<tr>
-								<td><button disabled class="b-t1 b-t">5 alive</button></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="alive1"></td>
-								<td><input type="number" class="qty qty-n" oninput="calculate()" id="alive2"></td>
-							</tr>
+  			<br>
+				<table>
+					<thead>
+						<th>BRAND</th>
+						<th>PET SIZE</th>
+						<th>BIG SIZE</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td><button disabled class="b-t1 b-t">Cola</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="cola1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="cola2"></td>
+						</tr>
+						<tr>
+							<td><button disabled class="b-t2 b-t">Orange</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="orange1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="orange2"></td>
+						</tr>
+						<tr>
+							<td><button disabled class="b-t3 b-t">Tropical</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()"  id="tropica1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="tropica2"></td>
+						</tr>
+						<tr>
+							<td><button disabled class="b-t4 b-t">Chap</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="chap1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="chap2"></td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<td><button disabled class="b-t1 b-t">PEPSI</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="pepsi1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="pepsi2"></td>
+						</tr>
+						<tr>
+							<td><button disabled class="b-t2 b-t">MIRINDA</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="mirinda1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="mirinda2"></td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<td><button disabled class="b-t1 b-t">COKE</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="coke1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="coke2"></td>
+						</tr>
+						<tr>
+							<td><button disabled class="b-t2 b-t">FANTA</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="fanta1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()"id="fanta2"></td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+						<tr>
+							<td><button disabled class="b-t1 b-t">5 alive</button></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="alive1"></td>
+							<td><input type="number" class="qty qty-n" oninput="calculate()" id="alive2"></td>
+						</tr>
 						
 						</tbody>
 					</table>
- 									<a class="total" id="soft-amount"></a>
-			<br>	<p class="grandTotal">TOTAL BILL + VAT </p>
-		</div>
-	  	<br>
+ 							<a class="total" id="soft-amount"></a>
+						<br>
+						<p class="grandTotal">TOTAL BILL + VAT </p>
+		   </div>
+			<br>
 		<div class="divmain">
 	  		<div class="available">
-	    			<p class="text5 logo2">CURRENT PRICE LIST</p>
-					<table>
-	  						<tr><th>BOTTLED WATER </th></tr>
-	  						<tr><td>AQUARITE WATER <td >@###</span></td></tr>
-	  						<tr><td>AQUAFINA WATER
-	  						<td>@###</td></tr>
-	  						<tr><td>BIGI WATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					     	<td>@###</td></tr>
-	  				        <tr><td>EVA WATER &nbsp;&nbsp;&nbsp;&nbsp;	
-	  						<td>@###</td></tr>
-	  				</table>
+	    		<p class="text5 logo2">CURRENT PRICE LIST</p>
+				<table>
+	  				<tr><th>BOTTLED WATER </th></tr>
+	  				<tr><td>AQUARITE WATER <td >@###</span></td></tr>
+	  				<tr><td>AQUAFINA WATER
+	  				<td>@###</td></tr>
+	  				<tr><td>BIGI WATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<td>@###</td></tr>
+	  				<tr><td>EVA WATER &nbsp;&nbsp;&nbsp;&nbsp;	
+	  				<td>@###</td></tr>
+	  			</table>
 	  					<br>
-	  				<table>
-	  						<tr><th>SOFT DRINK PET</th></tr>
-	  						<tr><td>BIGI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  						<td>@###</td></tr>
-	  						<tr><td>COCACOLA&nbsp;&nbsp;
-	  						<td>@###</td></tr>
-	  						<tr><td>MALTINA&nbsp;&nbsp;&nbsp;
-	  						<td>@###</td></tr>
-	  						<tr><td>PEPSI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  						<td>@###</td></tr>
-	  						<tr><td>5 alive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  						<td>@###</td></tr>
-					</table>
-						<br>
-	  				<table>
-	  						<tr><th>SOFT DRINK BIG</th></tr>
-	  						<tr><td>BIGI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  						<td>@###</td></tr>
-	  						<tr><td>COCACOLA&nbsp;&nbsp;
-	  						<td>@###</td></tr><tr><td>MALTINA&nbsp;&nbsp;&nbsp;
-							<td>@###</td></tr>
-	  						<tr><td>PEPSI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  						<td >@###</td></tr>
-	  						<tr><td>5 alive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	  						<td >@###</td></tr>
-					</table>
+	  			<table>
+	  				<tr><th>SOFT DRINK PET</th></tr>
+	  				<tr><td>BIGI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  				<td>@###</td></tr>
+	  				<tr><td>COCACOLA&nbsp;&nbsp;
+	  				<td>@###</td></tr>
+	  				<tr><td>MALTINA&nbsp;&nbsp;&nbsp;
+	  				<td>@###</td></tr>
+	  				<tr><td>PEPSI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  				<td>@###</td></tr>
+	  				<tr><td>5 alive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  				<td>@###</td></tr>
+				</table>
+					<br>
+	  			<table>
+	  				<tr><th>SOFT DRINK BIG</th></tr>
+	  				<tr><td>BIGI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  				<td>@###</td></tr>
+	  				<tr><td>COCACOLA&nbsp;&nbsp;
+	  				<td>@###</td></tr><tr><td>MALTINA&nbsp;&nbsp;&nbsp;
+					<td>@###</td></tr>
+	  				<tr><td>PEPSI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  				<td >@###</td></tr>
+	  				<tr><td>5 alive &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  				<td >@###</td></tr>
+				</table>
 	 		 </div>
 	  
 	  		<div class="delivery">
 				<fieldset>
  					<legend class="text5 logo2">Delivery Info</legend>
-	    					<label>FULL-NAME</label><input type="text"><br>
-	    					<label>MOBILE </label><input type="tel"><br>
-	    					<label>ADDRESS INFO</label><input type="text">
-	    				<div class="complain">
-	      					<p class="note2">Write to us your complains</p>
-	      					<textarea>	        
-	      					</textarea>
-	      					<br>
-	    	  				<button>Send</button>
-	    				</div>
+	    				<label>FULL-NAME</label><input type="text"><br>
+	    				<label>MOBILE </label><input type="tel"><br>
+	    				<label>ADDRESS INFO</label><input type="text">
+	    			<div class="complain">
+	      				<p class="note2">Write to us your complains</p>
+	      				<textarea>	        
+	      				</textarea>
+	      				<br>
+	    	  			<button>Send</button>
+	    			</div>
 				</fieldset>
 	  		</div>
-		</div>
-			<br><br>
-			<button class="confirm"><b>BOOK ORDER</b></button>
+			</div>
+				<br><br>
+				<button class="confirm"><b>BOOK ORDER</b></button>
+		</form>
 			<br><br>
 			<div id="priceTracker">	  
 					<em class="chartTitle">2022 monthly average price</em><span ><button id="cancel">&times;</button></span>
